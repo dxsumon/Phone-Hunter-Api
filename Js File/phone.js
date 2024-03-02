@@ -42,10 +42,16 @@ const displayPhone = (data) => {
 };
 
 const searchField =()=> {
+  loadingSpinner();
   const textInput = document.getElementById('search-field');
   const textValue = textInput.value;
   console.log(textValue)
   loadData(textValue);
+}
+
+const loadingSpinner=()=>{
+  const loading = document.getElementById('loading-spinner');
+  loading.classList.remove('hidden')
 }
 
 loadData();
