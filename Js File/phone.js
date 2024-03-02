@@ -75,7 +75,7 @@ const showModal=(phoneDetail)=>{
           <p class="text-black font-bold">Slug: <span class="font-normal">${phoneDetail?.slug}</span></p>
           <p class="text-black font-bold">Release Date: <span class="font-normal">${phoneDetail?.releaseDate
           }</span></p>
-          <p class="text-black font-bold">GPS: <span class="font-normal">${phoneDetail?.others?.GPS
+          <p class="text-black font-bold">GPS: <span class="font-normal">${phoneDetail?.others?.GPS || 'No GPS Available'
           }</span></p>
   `
   showDetailsModal.showModal()
