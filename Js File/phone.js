@@ -69,11 +69,15 @@ const showModal=(phoneDetail)=>{
   phoneName.innerText = phoneDetail.name;
   phoneDetailsContainer.innerHTML=`
           <div class="flex justify-center items-center"><img src="${phoneDetail.image}" alt="" class="w-1/2"> </div>
-          <p class="text-black font-bold">Storage: <span class="font-normal">${phoneDetail.mainFeatures.storage}</span></p>
-          <p class="text-black font-bold">Display Size: <span class="font-normal">${phoneDetail.mainFeatures.displaySize}</span></p>
-          <p class="text-black font-bold">Chipset: <span class="font-normal">${phoneDetail.mainFeatures.chipSet}</span></p>
-          <p class="text-black font-bold">Memory: <span class="font-normal">${phoneDetail.mainFeatures.memory}</span></p>
-          <p class="text-black font-bold">Slug: <span class="font-normal">${phoneDetail.slug}</span></p>
+          <p class="text-black font-bold">Storage: <span class="font-normal">${phoneDetail?.mainFeatures?.storage}</span></p>
+          <p class="text-black font-bold">Display Size: <span class="font-normal">${phoneDetail?.mainFeatures?.displaySize}</span></p>
+          <p class="text-black font-bold">Chipset: <span class="font-normal">${phoneDetail?.mainFeatures?.chipSet}</span></p>
+          <p class="text-black font-bold">Memory: <span class="font-normal">${phoneDetail?.mainFeatures?.memory}</span></p>
+          <p class="text-black font-bold">Slug: <span class="font-normal">${phoneDetail?.slug}</span></p>
+          <p class="text-black font-bold">Release Date: <span class="font-normal">${phoneDetail?.releaseDate
+          }</span></p>
+          <p class="text-black font-bold">GPS: <span class="font-normal">${phoneDetail?.others?.GPS
+          }</span></p>
   `
   showDetailsModal.showModal()
 }
