@@ -35,7 +35,7 @@ const displayPhone = (data,isShowAll) => {
               />
             </figure>
             <div class="card-body items-center text-center">
-              <h2 class="card-title">${phone.phone_name}</h2>
+              <h2 class="card-title"><span class="font-bold">Phone Name: </span> ${phone.phone_name}</h2>
               <p class="text-black">There are many variations of passages of available, but the majority have suffered </p>
               <p class="text-xl">Brand name: <span class="font-bold text-xl">${phone.brand}</span> </p>
               <p class="text-xl font-bold">999$</p>
@@ -64,11 +64,10 @@ const showDetailsButton =async (id)=>{
 // Show phones modal function
 const showModal=(phoneDetail)=>{
   console.log(phoneDetail)
-  const phoneName = document.getElementById('show-phone-name');
-  const phoneDetailsContainer = document.getElementById('phone-details-container');
-  phoneName.innerText = phoneDetail.name;
+  const phoneDetailsContainer = document.getElementById('phone-details-container')
   phoneDetailsContainer.innerHTML=`
           <div class="flex justify-center items-center"><img src="${phoneDetail.image}" alt="" class="w-1/2"> </div>
+          <p class=" font-bold text-xl text-gray-700 ">${phoneDetail.brand} <span class="">${phoneDetail?.name}</span></p>
           <p class="text-black font-bold">Storage: <span class="font-normal">${phoneDetail?.mainFeatures?.storage}</span></p>
           <p class="text-black font-bold">Display Size: <span class="font-normal">${phoneDetail?.mainFeatures?.displaySize}</span></p>
           <p class="text-black font-bold">Chipset: <span class="font-normal">${phoneDetail?.mainFeatures?.chipSet}</span></p>
