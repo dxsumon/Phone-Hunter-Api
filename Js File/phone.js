@@ -39,19 +39,26 @@ const displayPhone = (data) => {
     phoneContainer.appendChild(phoneSection);
     console.log(phone)
   });
+  // Hide the loading spinner
+  loadingSpinner(false);
 };
 
 const searchField =()=> {
-  loadingSpinner();
+  loadingSpinner(true);
   const textInput = document.getElementById('search-field');
   const textValue = textInput.value;
   console.log(textValue)
   loadData(textValue);
 }
 
-const loadingSpinner=()=>{
+const loadingSpinner=(isLoading)=>{
   const loading = document.getElementById('loading-spinner');
-  loading.classList.remove('hidden')
+  if(isLoading){
+    loading.classList.remove('hidden');
+  }
+  else{
+    loading.classList.add('hidden');
+  }
 }
 
 loadData();
