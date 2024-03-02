@@ -11,13 +11,50 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-
   </head>
   <body>
-    <header>
-        <h1 class="text-6xl font-semibold text-center">Phone Hunting Website</h1>
+    <header class="container mx-auto">
+      <div class="navbar bg-base-100 lg:m-7">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl lg:text-5xl">Phone Hunting</a>
+        </div>
+        <div class="flex-none gap-2">
+          <div class="">
+            <input id="search-field" type="text" placeholder="Search..." class="input input-bordered w-24 md:w-auto" />
+            <button onclick="searchField()" class="btn bg-[#4A00FF] text-white ">Search</button>
+          </div>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src="./assets/337274487_227846329803538_2658005076278016715_n.jpg" />
+              </div>
+            </div>
+            <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
-    <main></main>
+    <main class="container mx-auto">
+      <!-- Phone details -->
+      <section class="w-full">
+        <div id="phoneContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+         
+        </div>
+        <!-- Show all button -->
+        <div class="text-center w-full my-8">
+          <button id="show-all-button" onclick="" class="btn btn-outline btn-primary hidden w-[80%]">Show all </button>
+        </div>
+      </section>
+    </main>
     <footer></footer>
     <script src="./Js File/phone.js"></script>
   </body>
