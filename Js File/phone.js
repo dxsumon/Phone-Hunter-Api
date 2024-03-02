@@ -1,22 +1,28 @@
-const loadData = async (phoneName) => {
+const loadData = async (phoneName, isShowAll) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${phoneName}`);
   const data = await res.json();
   const phones = data.data;
-  displayPhone(phones);
+  displayPhone(phones,isShowAll);
 };
 
-const displayPhone = (data) => {
+const displayPhone = (data,isShowAll) => {
   const phoneContainer = document.getElementById("phoneContainer");
   phoneContainer.textContent ='';
   console.log(phoneContainer.length);
   const showAll = document.getElementById('show-all-button');
-  if(data.length>14){
+  if(data.length>14 && !isShowAll){
     showAll.classList.remove('hidden');
   }
   else{
     showAll.classList.add('hidden');
   }
-  data = data.slice(0,14);
+  // Show all items
+  console.log('IS show all ', isShowAll)
+  if(!isShowAll){
+    data = data.slice(0,14);
+  };
+
+
   data.forEach((phone) => {
     const phoneSection = document.createElement("div");
     phoneSection.classList = `card w-96 mx-auto bg-base-100 shadow-xl border-2 m-4`;
@@ -32,6 +38,7 @@ const displayPhone = (data) => {
               <h2 class="card-title">${phone.phone_name}</h2>
               <p class="text-black">There are many variations of passages of available, but the majority have suffered </p>
               <p class="text-xl">${phone.slug}</p>
+              <p class="text-xl font-bold">999$</p>
               <div class="card-actions">
                 <button class="btn btn-primary">Buy Now</button>
               </div>
@@ -43,12 +50,12 @@ const displayPhone = (data) => {
   loadingSpinner(false);
 };
 
-const searchField =()=> {
+const searchField =(isShowAll)=> {
   loadingSpinner(true);
   const textInput = document.getElementById('search-field');
   const textValue = textInput.value;
   console.log(textValue)
-  loadData(textValue);
+  loadData(textValue,isShowAll);
 }
 
 const loadingSpinner=(isLoading)=>{
@@ -59,6 +66,10 @@ const loadingSpinner=(isLoading)=>{
   else{
     loading.classList.add('hidden');
   }
+}
+// Show all Click handle 
+const showAllItems = () => {
+  searchField(true);
 }
 
 loadData();
